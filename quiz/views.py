@@ -42,7 +42,7 @@ def user_register(request):
 			u_name, pwd = form.save()
 			new_user = authenticate(username=u_name, password=pwd)
 			login(request, new_user)
-			return redirect("/home/")
+			return redirect("/")
 		else:
 			return render_to_response('register.html', {'form': form},
 											context_instance=ci)
