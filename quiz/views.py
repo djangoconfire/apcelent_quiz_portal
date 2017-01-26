@@ -25,7 +25,7 @@ now = timezone.now()
 def is_admin(user1):
     s=Profile.objects.get(user=user1)
     
-    if s.is_teacher==True:
+    if s.is_admin==True:
         return True
     else:
         return False    
