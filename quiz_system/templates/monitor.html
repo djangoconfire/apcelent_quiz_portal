@@ -29,7 +29,7 @@
     {% if quizzes %}
         <ul>    
             {% for q in quizzes %}
-                <li><a href="/manage/monitor/{{q.id}}/">{{ q.quiz.description }}</a></li>
+                <li><a href="/quiz/manage/monitor/{{q.id}}/">{{ q.quiz.description }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -50,8 +50,8 @@
                 </tr>
                 {% for paper in papers %}
                     <tr> 
-                        <td> <a href="/manage/user_data/{{paper.user.username}}">{{ paper.user.get_full_name.title }}</a> </td>
-                        <td> <a href="/manage/user_data/{{paper.user.username}}">{{ paper.user.username }}</a> </td>
+                        <td> <a href="/quiz/manage/user_data/{{paper.user.username}}">{{ paper.user.get_full_name.title }}</a> </td>
+                        <td> <a href="/quiz/manage/user_data/{{paper.user.username}}">{{ paperser.user.username }}</a> </td>
                         <td> {{ paper.profile.roll_number }} </td>
                         <td> {{ paper.profile.institute }} </td>
                         <td> {{ paper.get_answered_str }} </td> 
