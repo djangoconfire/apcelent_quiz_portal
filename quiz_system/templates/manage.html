@@ -24,14 +24,14 @@
     <div class="topbar">
         <div class="fill">
             <div class="container">
-                <a href="/quiz/manage/"><h3 class="brand"><strong>Online Quiz</h3></strong></a>
+                <a href="/manage/"><h3 class="brand"><strong>Online Quiz</h3></strong></a>
                 <ul>
-                    <li><a href="/quiz/manage/showquiz/">Quizzes"></a></li>
-                    <li><a href="/quiz/manage/monitor/">Monitor</a></li>
+                    <li><a href="/manage/showquiz/">Quizzes"></a></li>
+                    <li><a href="/manage/monitor/">Monitor</a></li>
                 </ul>
                 
                 <ul style="float:right;">
-                    <li><strong><a style='cursor:pointer' onClick='location.replace("/quiz/complete/");'>Log out</a></strong></li>
+                    <li><strong><a style='cursor:pointer' onClick='location.replace("/complete/");'>Log out</a></strong></li>
                 </ul>
             </div>
         </div>
@@ -57,7 +57,7 @@
                                 {% for paper, answer_papers, users_passed, users_failed in users_per_paper %}
                                     <tr>
                                         <td>
-                                            <a href="/quiz/manage/monitor/{{paper.id}}/">{{ paper.quiz.description }}</a>
+                                            <a href="/manage/monitor/{{paper.id}}/">{{ paper.quiz.description }}</a>
                                         </td>
                                         <td>
                                             {{ answer_papers|length }} user(s)
@@ -76,7 +76,7 @@
                     
                             <h4>Admin's Dashboard!</h4>
                             <h5>Click on the button given below to add a new quiz.</h5>
-                            <button class="btn" type="button" onClick='location.replace("/quiz/manage/addquiz/");'>Add New Quiz</button>
+                            <button class="btn" type="button" onClick='location.replace("/manage/addquiz/");'>Add New Quiz</button>
                         </center>
                     {% endblock %}
                 </div>

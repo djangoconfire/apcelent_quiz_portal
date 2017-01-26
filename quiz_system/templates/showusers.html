@@ -20,7 +20,7 @@
 			<th>Quiz Description
 			{% for papers in question %}
 				<tr>
-					<td><a href="/quiz/manage/gradeuser/{{ papers.user.username }}">{{ papers.user.username }}</a><br>
+					<td><a href="/manage/gradeuser/{{ papers.user.username }}">{{ papers.user.username }}</a><br>
 			    	<td >{{ papers.user.first_name.title }}
 			    	<td>{{ papers.user.last_name.title }}
 			    	<td>{{ papers.question_paper.quiz.description }}

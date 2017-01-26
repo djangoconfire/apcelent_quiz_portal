@@ -31,13 +31,13 @@
         
         <p> We hope you enjoy taking this exam !!!</p>
 
-        <form action="/quiz/quizzes/" method="post" align="center">
+        <form action="/quizzes/" method="post" align="center">
            {% csrf_token %}
            <center>
                 <button class="btn" name="home">Home</button></center>
         </form>
         {% if not quiz_expired %}
-            <form action="/quiz/start/{{ attempt_num }}/{{ paper_id }}/" method="post" align="center">
+            <form action="/start/{{ attempt_num }}/{{ paper_id }}/" method="post" align="center">
                {% csrf_token %}
                 <center>
                     <button class="btn" type="submit" name="start">Start Exam!</button></center>

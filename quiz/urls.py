@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 
 urlpatterns = [
-    url(r'^home/$', 'quiz.views.home',name="home"),
+    url(r'^$', 'quiz.views.home',name="home"),
     url(r'^quizzes/$', 'quiz.views.quizlist_user',name="quizzes"),
 	url(r'^register/$', 'quiz.views.user_register',name="register"),
     url(r'^start/$', 'quiz.views.start',name="start_quiz"),

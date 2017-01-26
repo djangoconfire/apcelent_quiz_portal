@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     # app_urls
-    url(r'^quiz/',include('quiz.urls',namespace="quiz")), 
+    url(r'^',include('quiz.urls',namespace="quiz")), 
 
     # for api
     url(r'^api/', include('api.urls',namespace="api")),   

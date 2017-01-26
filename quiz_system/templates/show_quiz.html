@@ -14,7 +14,7 @@
 		<center>
 			<h5> No quizzes available. </h5>
 		</center>
-		<button class="btn" type="button" onClick='location.replace("/quiz/manage/addquiz");'>Add New Quiz</button>&nbsp;&nbsp;
+		<button class="btn" type="button" onClick='location.replace("/manage/addquiz");'>Add New Quiz</button>&nbsp;&nbsp;
 	{% endif %}
 
 	{% if quizzes %}
@@ -22,7 +22,7 @@
 		{% csrf_token %}
 
 			{% for quiz in quizzes %}
-				<input type=checkbox name='quiz' value={{quiz.id}} />&nbsp;&nbsp;<a href="/quiz/manage/addquiz/{{quiz.id}}/">{{ quiz.description }}</a><br>
+				<input type=checkbox name='quiz' value={{quiz.id}} />&nbsp;&nbsp;<a href="/manage/addquiz/{{quiz.id}}/">{{ quiz.description }}</a><br>
 			{% endfor %}
 
 			<br><br>
