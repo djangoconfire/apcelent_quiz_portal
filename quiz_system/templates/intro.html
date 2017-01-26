@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Instructions and Rules {% endblock %}
+{% block pagetitle %}Online Test {% endblock %}
+{% block formtitle %}Important instructions  rules {% endblock %}
+{% block content %}
+
+        {% if enable_quiz_time or disable_quiz_time %}
+            {% if quiz_expired %}
+                <div class="alert alert-error">
+                    This Quiz has expired. You can no longer attempt this Quiz.
+                  <br/>
+                </div>
+            {% else %}
+                <div class="alert">
+                    You can attempt this Quiz at any time between {{ enable_quiz_time }} and {{ disable_quiz_time }}
+                    <br/>
+                    You are not allowed to attempt the Quiz before or after this duration
+                    <br/>
+                </div>
+            {% endif %}
+        {% endif %}
+          
+        <p> Welcome <strong>{{user.first_name.title}} {{user.last_name.title}}</strong>, to the  quiz! </p>
+        <p> Here are some important instructions and rules that you should understand carefully.</p> 
+        <ul>
+            <li> Do not copy or share the questions or answers with anyone until the exam is complete <strong>for everyone</strong>.</li>
+            <li> <strong>All</strong> your attempts at the questions are logged. Do not try to outsmart and break the testing system.  If you do, we know who you are and we will expell you from the course.  You have been warned.
+            </li>
+         </ul>
+        
+        <p> We hope you enjoy taking this exam !!!</p>
+
+        <form action="/quizzes/" method="post" align="center">
+           {% csrf_token %}
+           <center>
+                <button class="btn" name="home">Home</button></center>
+        </form>
+        {% if not quiz_expired %}
+            <form action="/start/{{ attempt_num }}/{{ paper_id }}/" method="post" align="center">
+               {% csrf_token %}
+                <center>
+                    <button class="btn" type="submit" name="start">Start Exam!</button></center>
+            </form>
+        {% endif %}
+{% endblock content %}

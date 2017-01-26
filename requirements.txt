@@ -1,0 +1,4 @@
+Django==1.8.5
+djangorestframework==3.3.3
+Pillow==3.4.2
+

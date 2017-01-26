@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+
+        {% block meta %}
+            <meta charset="utf-8">
+            <meta name="description" content="">
+            <meta name="author" content="">
+        {% endblock %}
+   
+        {% load staticfiles %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" >
+        {% block css %}
+        {% endblock %}
+
+        {% block script %}
+        {% endblock %}
+    </head>
+
+<body {% block onload %}{% endblock %}>
+    <div class="topbar">
+        <div class="fill">
+            <div class="container">
+                <a href="/manage/"><h3 class="brand"><strong>Online Quiz</h3></strong></a>
+                <ul>
+                    <li><a href="/manage/showquiz/">Quizzes"></a></li>
+                    <li><a href="/manage/monitor/">Monitor</a></li>
+                </ul>
+                
+                <ul style="float:right;">
+                    <li><strong><a style='cursor:pointer' onClick='location.replace("/complete/");'>Log out</a></strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+                <h3><center>{% block subtitle %}Welcome {{ user.first_name.title }} {{user.last_name.title}} !{% endblock %}</center></h3><br>
+            </div>
+            
+            <div class=row>
+                <div class=span14>
+                    {% block manage %}
+                        <center><h4>List of quizzes! Click on the given links to have a look at answer papers for a quiz.</h4>
+                        </center>
+                        <hr>
+                            <table class="bordered-table zebra-striped">
+                                <th>Quiz</th>
+                                <th>Taken By</th>
+                                <th>No. of users Passed</th>
+                                <th>No. of users Failed</th>
+                                {% for paper, answer_papers, users_passed, users_failed in users_per_paper %}
+                                    <tr>
+                                        <td>
+                                            <a href="/manage/monitor/{{paper.id}}/">{{ paper.quiz.description }}</a>
+                                        </td>
+                                        <td>
+                                            {{ answer_papers|length }} user(s)
+                                        </td>
+                                        <td>
+                                            {{ users_passed }}
+                                        </td>
+                                        <td>
+                                            {{ users_failed }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            <hr>
+                        <center>
+                    
+                            <h4>Admin's Dashboard!</h4>
+                            <h5>Click on the button given below to add a new quiz.</h5>
+                            <button class="btn" type="button" onClick='location.replace("/manage/addquiz/");'>Add New Quiz</button>
+                        </center>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+     
+    </div>
+
+</body>
+</html>

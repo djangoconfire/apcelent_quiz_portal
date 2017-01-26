@@ -1,0 +1,30 @@
+{% extends "manage.html" %}
+
+
+{% block subtitle %} 
+	List of Users 
+{% endblock %}
+
+{% block css %}
+   {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/showusers.css' %}">
+{% endblock css %}
+
+
+{% block manage %}
+	<center>
+		<table style="text-align:left;" class=table-class border=3>
+			<th>Username
+			<th>First Name
+			<th>Last Name
+			<th>Quiz Description
+			{% for papers in question %}
+				<tr>
+					<td><a href="/manage/gradeuser/{{ papers.user.username }}">{{ papers.user.username }}</a><br>
+			    	<td >{{ papers.user.first_name.title }}
+			    	<td>{{ papers.user.last_name.title }}
+			    	<td>{{ papers.question_paper.quiz.description }}
+			{% endfor %}
+		</table>
+	</center>
+{% endblock %}
