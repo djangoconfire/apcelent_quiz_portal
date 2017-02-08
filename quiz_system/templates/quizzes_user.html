@@ -5,13 +5,14 @@
 
 {% block css %}
 {% load staticfiles %}
-<link rel="stylesheet" href="{% static question_quiz.css %}" type="text/css" />
+    <link rel="stylesheet" href="{% static question_quiz.css %}" type="text/css" />
 {% endblock %}
 
 {% block script %}
+
 {% load staticfiles %}
-<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}
 {% block manage %}
     <h4>List of quizzes availbale for you</h4>
